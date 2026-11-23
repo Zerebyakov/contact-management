@@ -92,7 +92,7 @@ const user = reactive({
     confirm_password: "",
     name: ""
 })
-
+// 38.40
 async function handleSubmit() {
     if (user.password !== user.confirm_password) {
         await alertError("Password do not match")
