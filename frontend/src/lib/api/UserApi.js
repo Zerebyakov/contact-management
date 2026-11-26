@@ -57,7 +57,7 @@ export const userUpdateProfile = async(token, {name}) => {
 }
 
 
-export const userUpdatePassword = async ({password}) => {
+export const userUpdatePassword = async (token, {password}) => {
     return await fetch(`${import.meta.env.VITE_API_PATH}/users/current`,{
         method:'PATCH',
         headers:{
@@ -68,5 +68,16 @@ export const userUpdatePassword = async ({password}) => {
         body: JSON.stringify({
             password
         })
+    })
+}
+
+
+export const userLogout = async(token) =>{
+    return await fetch(`${import.meta.env.VITE_API_PATH}/users/logout`, {
+        method: 'DELETE',
+        headers:{
+            'Accept' : 'application/json',
+            'Authorization': token
+        }
     })
 }
